@@ -1,0 +1,12 @@
+body {
+	background-color: lightblue;
+	background-image: url("assets/images/hasselhoff.png");
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+
+h1 {
+	background-color: tan;
+	padding: 10px;
+}
+
