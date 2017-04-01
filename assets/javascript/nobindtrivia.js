@@ -29,7 +29,7 @@ var questions = [{
 }];
 // creates variable to hold the time left
 var timer;
-
+// variables for aspects of game
 var game = {
 
   questions: questions,
@@ -46,7 +46,7 @@ var game = {
       game.timeUp();
     }
   },
-
+  // sets the timer and puts the question on the html
   loadQuestion: function() {
 
     timer = setInterval(game.countdown, 1000);
@@ -59,6 +59,7 @@ var game = {
     }
   },
 
+  // when one question is answered or time is up it increments the questions and calls loadQuestion
   nextQuestion: function() {
     game.counter = countStartNumber;
     $("#counter-number").html(game.counter);
@@ -66,13 +67,15 @@ var game = {
     game.loadQuestion();
   },
 
+  // if time runs out it shows that time ran out for that question and shows correct answer
+  // checks if on last question or not and calls next quesiton or game overr
   timeUp: function() {
 
     clearInterval(timer);
 
     $("#counter-number").html(game.counter);
 
-    panel.html("<h2>Out of Time!</h2>");
+    panel.html("<h2>Hoff the clock... time up</h2>");
     panel.append("<h3>The Correct Answer was: " + questions[this.currentQuestion].correctAnswer);
     panel.append("<img src='" + questions[this.currentQuestion].image + "' />");
 
@@ -88,7 +91,7 @@ var game = {
 
     clearInterval(timer);
 
-    panel.html("<h2>All done, heres how you did!</h2>");
+    panel.html("<h2>How well did you know the Hoff?</h2>");
 
     $("#counter-number").html(game.counter);
 
@@ -114,7 +117,7 @@ var game = {
 
     clearInterval(timer);
 
-    panel.html("<h2>Nope!</h2>");
+    panel.html("<h2>Hassel huh?</h2>");
     panel.append("<h3>The Correct Answer was: " + questions[game.currentQuestion].correctAnswer + "</h3>");
     panel.append("<img src='" + questions[game.currentQuestion].image + "' />");
 
@@ -132,7 +135,7 @@ var game = {
 
     game.correct++;
 
-    panel.html("<h2>Correct!</h2>");
+    panel.html("<h2>Hassel Heck Yea!</h2>");
     panel.append("<img src='" + questions[game.currentQuestion].image + "' />");
 
     if (game.currentQuestion === questions.length - 1) {
