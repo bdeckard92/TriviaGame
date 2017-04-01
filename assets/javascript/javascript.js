@@ -13,18 +13,18 @@ var numWrong = 0;
 
 
 
-//$(document).ready(function() {
+$(document).ready(function() {
 
-$("#wrong").click(function(){
+$(".wrong").click(function(){
 	console.log(7+5);
 	alert("Don't Scoff at The Hoff!!?!");
 });
 
-$("#right").click(function(){
+$(".right").click(function(){
 	console.log(7+7);
 	alert("Hassel Heck Yea!");
 });
-
+})
 
 
 
