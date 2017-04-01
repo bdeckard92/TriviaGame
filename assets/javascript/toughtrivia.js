@@ -23,13 +23,13 @@ var questions = [{
     image: "assets/images/rescue_tube.png"
 }, {
     question: "His return to American Music Fame and Worship was derailed when people changed the channel from his pay per view to watch what event?",
-    answers: ["The rebroadcast of the 1946 Middletownship, Indiana sub-regional Spelling Bee", "A channel of dead air that sort of almost looked like it might have been an Cinimax dirty movie being played for free if you turned your head just a little to the right and squinted", "OJ Simpson’s police chase (which ironically it turned out he was only running from the police in order to get home in time to catch the end of David Hasselhoff’s pay per view)", "The “Little House on the Prairie” reunion where it turned out that the entire show was just Bobby Ewing’s dream"],
+    answers: ["The rebroadcast of the 1946 Middletownship, Indiana sub-regional Spelling Bee", "A channel of dead air that sort of almost looked like it might have been an Cinimax dirty movie being played for free if you turned your head just a little to the right and squinted", "OJ Simpson’s police chase (which ironically it turned out he was only running from the police in order to get home in time to catch the end of David Hasselhoff’s pay per view)", "The Little House on the Prairie reunion where it turned out that the entire show was just Bobby Ewing’s dream"],
     correctAnswer: "OJ Simpson’s police chase (which ironically it turned out he was only running from the police in order to get home in time to catch the end of David Hasselhoff’s pay per view)",
     image: "assets/images/recline_hoff.png"
 }];
-
+// creates variable to hold the time left
 var timer;
-
+// creates variables for the questions, time counter, and results counters
 var game = {
     questions: questions,
     currentQuestion: 0,
@@ -37,7 +37,7 @@ var game = {
     correct: 0,
     incorrect: 0,
 
-
+    // creates the countdown and calls timeUp
     countdown: function() {
         this.counter--;
         $("#counter-number").html(this.counter);
@@ -46,12 +46,12 @@ var game = {
             this.timeUp();
         }
     },
-
+    // loades the questions and answers into the panel
     loadQuestion: function() {
         timer = setInterval(this.countdown.bind(this), 1000);
         panel.html("<h2>" + questions[this.currentQuestion].question + "</h2>");
         for (var i = 0; i < questions[this.currentQuestion].answers.length; i++) {
-            panel.append("<button class='answer-button' id='button' 'data-name'" + questions[this.currentQuestion].answers[i] + "'>" + questions[this.currentQuestion].answers[i] + "</button>");
+            panel.append("<button class='answer-button' id='button' 'data-name'" + questions[this.currentQuestion].answers[i] + "'>" + questions[this.currentQuestion].answers[i] + "</button><br>");
 
         }
 
